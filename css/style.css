@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-html {
-    font-size: 10px;
-}
-
 ul, li {
     list-style: none;
 }
@@ -18,7 +14,8 @@ a {
 
 .board_wrap {
     width: 1000px;
-    margin: 100px auto;
+    margin-left: 100px ;
+    margin: auto;
 }
 
 .board_title {
@@ -26,12 +23,12 @@ a {
 }
 
 .board_title strong {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .board_title p {
     margin-top: 5px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .bt_wrap {
@@ -81,7 +78,7 @@ a {
     display: inline-block;
     padding: 15px 0;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .board_list > div.top > div {
@@ -127,7 +124,7 @@ a {
     vertical-align: middle;
     border: 1px solid #ddd;
     border-left: 0;
-    line-height: 100%;
+    line-height: 50%;
 }
 
 .board_page a.bt {
