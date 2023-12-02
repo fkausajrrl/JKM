@@ -1,41 +1,70 @@
-// 사용자가 가져온 값을 변수에 저장합니다.
-//const project1 = false;
-//const project2 = false;
-//const project3 = false;
-//const project4 = false;
+var user_id = localStorage.getItem('user_id');
+var username = localStorage.getItem('username');
+var loginButton = document.getElementById('loginButton');
 
-//json에서 넘어오는 값과 트루 폴스 비교
-//각 디테일 페이지에 같은 변수명으로 1 2 3 4를 저장
+document.getElementById("product1").style.display = "none";
+document.getElementById("product2").style.display = "none";
+document.getElementById("product3").style.display = "none";
+document.getElementById("product4").style.display = "none";
 
-// project1, project2, project3, project4의 값에 따라 페이지에 보여줄 요소를 결정합니다.
-if (product1) {
-  // project1이 true일 경우, 해당 엘리먼트를 보이도록 설정합니다.
-  document.getElementById('project1').style.display = 'block';
-} else {
-  // project1이 false일 경우, 해당 엘리먼트를 숨기도록 설정합니다.
-  document.getElementById('project1').style.display = 'none';
+var baseurl = "https://rarely-current-dane.ngrok-free.app";
+var url = `${baseurl}/order/list?user_id=${user_id}`;
+// var url_d =`${baseurl}/order/delete?user_id=200sein&item_id=1`;
+
+// GET 요청을 보내서 회원의 장바구니 조회
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // 장바구니에서 item_Id를 가져와서 alert으로 보여줌
+      const items = data.map(item => item.itemId);
+      items.forEach(itemId => {
+        console.log(itemId);
+        switch (itemId) {
+          case 1:
+            console.log("1번");
+            document.getElementById("product1").style.display = "table-row";
+            break;
+          case 2:
+            console.log("2번");
+            document.getElementById("product2").style.display = "table-row";
+            break;
+          case 3:
+            console.log("3번");
+            document.getElementById("product3").style.display = "table-row";
+            break;
+          case 4:
+            console.log("4번");
+            document.getElementById("product4").style.display = "table-row";
+            break;
+          default:
+            break;
+        }
+      });
+    })
+    .catch(error => {
+      console.error("장바구니 조회 중 오류가 발생했습니다:", error);
+    });
+
+
+// 장바구니 삭제 이벤트 핸들러
+function deleteCartItem(itemId) {
+  const baseurl = "https://rarely-current-dane.ngrok-free.app";
+  const url = `${baseurl}/order/delete?user_id=${user_id}&item_id=${itemId}`;
+
+  // POST 요청 보내기
+  fetch(url, {
+    method: "POST",
+  })
+      .then((response) => {
+        if (response.ok) {
+          console.log("장바구니 삭제 성공");
+          location.reload(); // 페이지 새로고침
+        } else {
+          console.log("장바구니 삭제 실패");
+        }
+      })
+      .catch((error) => {
+        console.error("장바구니 삭제 중 오류 발생:", error);
+      });
 }
 
-if (product2) {
-  // project2가 true일 경우, 해당 엘리먼트를 보이도록 설정합니다.
-  document.getElementById('project2').style.display = 'block';
-} else {
-  // project2가 false일 경우, 해당 엘리먼트를 숨기도록 설정합니다.
-  document.getElementById('project2').style.display = 'none';
-}
-
-if (product3) {
-  // project3이 true일 경우, 해당 엘리먼트를 보이도록 설정합니다.
-  document.getElementById('project3').style.display = 'block';
-} else {
-  // project3이 false일 경우, 해당 엘리먼트를 숨기도록 설정합니다.
-  document.getElementById('project3').style.display = 'none';
-}
-
-if (product4) {
-  // project4가 true일 경우, 해당 엘리먼트를 보이도록 설정합니다.
-  document.getElementById('project4').style.display = 'block';
-} else {
-  // project4가 false일 경우, 해당 엘리먼트를 숨기도록 설정합니다.
-  document.getElementById('project4').style.display = 'none';
-}

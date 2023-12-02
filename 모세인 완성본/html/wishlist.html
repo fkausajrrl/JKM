@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li class="header-gnbitem">
-                        <a class="header-gnblink" href="customer.html">
+                        <a class="header-gnblink" href="center.html">
                             <span>고객센터</span>
                         </a>
                     </li>
@@ -107,27 +107,27 @@
                     <h2 class="textset-tit">관심 제품 목록</h2>
                 </div>
                 <div class="contents-group">
-                    <div class="cardset cardset-hover cardset-border text-center">
+                    <div class="cardset cardset-hover cardset-border text-center" id="product1">
                         <figure class="cardset-figure">
                             <img class="cardset-img" src="../resources/images/img_basic_N42_1.png" alt="카드 이미지">
                         </figure>
                         <div class="cardset-cont">
                             <h2 class="cardset-tit">AOC 27B2H2</h2>
                             <p class="cardset-desc">고3 선물로 1등!</p>
-                            <button class="btn-wishlist">장바구니 담기</button>
+                            <a href="product_detail1.html" class="btn-wishlist">상품 보기</a>
                         </div>
                     </div>
-                    <div class="cardset cardset-hover cardset-border text-center">
+                    <div class="cardset cardset-hover cardset-border text-center" id="product2">
                         <figure class="cardset-figure">
                             <img class="cardset-img" src="../resources/images/img_basic_N42_2.png" alt="카드 이미지">
                         </figure>
                         <div class="cardset-cont">
                             <h2 class="cardset-tit">G274F IPS</h2>
                             <p class="cardset-desc">게임 특화 무결점 모니터!</p>
-                            <button class="btn-wishlist">장바구니 담기</button>
+                            <a href="product_detail2.html" class="btn-wishlist">상품 보기</a>
                         </div>
                     </div>
-                    <div class="cardset cardset-hover cardset-border text-center">
+                    <div class="cardset cardset-hover cardset-border text-center" id="product3">
                         <figure class="cardset-figure">
                             <img class="cardset-img" src="../resources/images/img_basic_N42_3.png" alt="카드 이미지">
                         </figure>
@@ -138,10 +138,10 @@
                                 style="font-size: var(--fs-h6); line-height: var(--lh-p4); color: rgb(17, 17, 17);">오디세이
                                 G5</h2>
                             <p class="cardset-desc">광시야각 커브드 모니터</p>
-                            <button class="btn-wishlist">장바구니 담기</button>
+                            <a href="product_detail3.html" class="btn-wishlist">상품 보기</a>
                         </div>
                     </div>
-                    <div class="cardset cardset-hover cardset-border text-center">
+                    <div class="cardset cardset-hover cardset-border text-center" id="product4">
                         <figure class="cardset-figure">
                             <img class="cardset-img" src="../resources/images/img_basic_N12_1.png" alt="카드 이미지">
                         </figure>
@@ -154,7 +154,7 @@
                                 <CG3146></CG3146>
                             </h2>
                             <p class="cardset-desc">전문가용 초고가 모니터</p>
-                            <button class="btn-wishlist">장바구니 담기</button>
+                            <a href="product_detail4.html" class="btn-wishlist">상품 보기</a>
                         </div>
                     </div>
                 </div>
@@ -189,6 +189,7 @@
 <script src="../resources/js/template.js"></script>
 <script src="../resources/js/common.js"></script>
 <script src="../resources/js/script.js"></script>
+<script src="../resources/js/checkwish.js"></script>
 <script>
     // JavaScript 함수를 통해 페이지 이동 처리
     function goToLoginPage() {
@@ -227,4 +228,5 @@
         }
     });
 </script>
+
 </body>
