@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="title" content="웹사이트">
+    <meta name="description" content="웹사이트입니다.">
+    <meta name="keywords" content="키워드,키워드,키워드">
+    <meta property="og:title" content="웹사이트">
+    <meta property="og:description" content="웹사이트입니다">
+    <meta property="og:image" content="https://웹사이트/images/opengraph.png">
+    <meta property="og:url" content="https://웹사이트">
+    <title>고객센터 | JKMPC</title>
+    <link rel="stylesheet" href="../resources/css/setting.css">
+    <link rel="stylesheet" href="../resources/css/plugin.css">
+    <link rel="stylesheet" href="../resources/css/template.css">
+    <link rel="stylesheet" href="../resources/css/common.css">
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/cart.css">
+    <link rel="stylesheet" href="./../resources/css/css.css">
+</head>
+<body>
+<!-- [S]basic-N1 -->
+<div class="basic-N1" data-bid="QYLPl9YDfv">
+    <div class="header-inner">
+        <div class="header-container container-lg">
+            <h1 class="header-title">
+                <a href="home.html">
+                    <img src="../resources/images/img_logo_black.png" alt="로고">
+                </a>
+            </h1>
+            <div class="header-center">
+                <div class="header-title header-mobile-top">
+                    <a href="javascript:void(0)">
+                        <img src="../resources/images/img_logo_black.png" alt="로고">
+                    </a>
+                </div>
+                <ul class="header-gnblist">
+                    <li class="header-gnbitem">
+                        <a class="header-gnblink" href="notice.html">
+                            <span>공지사항</span>
+                        </a>
+                    </li>
+                    <li class="header-gnbitem">
+                        <a class="header-gnblink" href="product.html">
+                            <span>제품</span>
+                        </a>
+                    </li>
+                    <li class="header-gnbitem">
+                        <a class="header-gnblink" href="wishlist.html">
+                            <span>위시리스트</span>
+                        </a>
+                    </li>
+                    <li class="header-gnbitem">
+                        <a class="header-gnblink" href="cart.html">
+                            <span>장바구니<br></span>
+                        </a>
+                    </li>
+                    <li class="header-gnbitem">
+                        <a class="header-gnblink" href="customer.html">
+                            <span>고객센터</span>
+                        </a>
+                    </li>
+                    <li class="header-gnbitem">
+                        <a class="header-gnblink" href="#">
+                            <span>문의내역</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-right">
+                <div class="header-utils">
+                    <button class="btn-allmenu"></button>
+                    <button class="btn" id="loginButton" type="button" onclick="goToLoginPage()">Login</button>
+                    <button class="btn-momenu">
+                        <img src="../resources/icons/ico_menu_black.svg" alt="모바일메뉴 아이콘">
+                    </button>
+                    <button class="btn-close">
+                        <img src="../resources/icons/ico_close_black.svg" alt="닫기 아이콘">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-dim"></div>
+</div>
+<!-- [E]basic-N1 -->
+<main class="th-layout-main "></main>
+
+<div class="board_wrap">
+    <div class="board_title">
+        <strong>고객센터</strong>
+        <p>문의사항을 빠르고 정확하게 안내해드립니다.</p>
+    </div>
+    <div class="board_write_wrap">
+        <div class="board_write">
+            <div class="title">
+                <dl>
+                    <dt>제목</dt>
+                    <dd id="titles" class="ti"></dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl>
+                    <dt>글쓴이</dt>
+                    <dd id="user"></dd>
+                </dl>
+            </div>
+            <div class="cont">
+                <textarea id="contents" placeholder="내용 입력"></textarea>
+            </div>
+        </div>
+        <div class="bt_wrap">
+            <a href="customer.html" class="on">수정완료</a>
+            <a class="delete">삭제</a>
+            <a href="view.html">취소</a>
+        </div>
+    </div>
+</div>
+
+<script src="../resources/js/setting.js"></script>
+<script src="../resources/js/plugin.js"></script>
+<script src="../resources/js/template.js"></script>
+<script src="../resources/js/common.js"></script>
+<script src="../resources/js/script.js"></script>
+<script src="../resources/js/cart.js"></script>
+
+//수정 완료 버튼 누르면 동작
+<script>
+    window.onload = function () {
+        // 페이지가 로드될 때 실행되는 코드
+        var userId = document.getElementById('user').innerText
+        var updatedTitle = document.getElementById('titles').innerText;
+
+        // '수정완료' 버튼 요소를 선택합니다.
+        var updateButton = document.querySelector('.bt_wrap a.on');
+
+        // '수정완료' 버튼에 클릭 이벤트 리스너를 추가합니다.
+        updateButton.addEventListener('click', function (event) {
+            event.preventDefault(); // 기본 동작인 링크 이동을 막습니다.
+
+            // 변경된 내용을 수집합니다.
+            var updatedContents = document.getElementById('contents').value;
+
+            // JSON 형식의 데이터 객체를 생성합니다.
+            var data = {
+                userId: userId,
+                title: updatedTitle,
+                contents: updatedContents
+            };
+
+            // 데이터를 전송합니다.
+            fetch('https://rarely-current-dane.ngrok-free.app/customer/edit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // 수정이 완료된 경우, 알림을 표시하고 확인을 누르면 페이지를 이동합니다.
+                    alert('수정 완료');
+                    window.location.href = "customer.html"; // 확인을 누르면 customer.html로 이동합니다.
+                })
+                .catch(error => {
+                    console.error('업데이트 실패:', error);
+                    // 업데이트가 실패한 경우에는 원하는 동작을 수행합니다.
+                });
+        });
+    };
+
+</script>
+//삭제 버튼 누르면 동장
+<script>
+    window.onload = function () {
+        // 페이지가 로드될 때 실행되는 코드
+        var userId = document.getElementById('user').innerText
+        var updatedTitle = document.getElementById('titles').innerText;
+
+        // '삭제' 버튼 요소를 선택합니다.
+        var deleteButton = document.querySelector('.delete');
+
+        // '삭제' 버튼에 클릭 이벤트 리스너를 추가합니다.
+        deleteButton.addEventListener('click', function (event) {
+            event.preventDefault(); // 기본 동작인 링크 이동을 막습니다.
+
+            // 'user_id'와 'title'을 URL에 포함하여 요청을 보냅니다.
+            fetch(`https://rarely-current-dane.ngrok-free.app/customer/delete?user_id=${userId}&title=${updatedTitle}`, {
+                method: 'POST',
+            })
+                .then(response => response.text()) // 응답을 텍스트로 받습니다.
+                .then(data => {
+                    // 서버로부터 받은 문자열을 alert으로 출력하고, 확인을 누르면 customer.html로 이동합니다.
+                    alert(data);
+                    window.location.href = "customer.html";
+                });
+        });
+    };
+
+</script>
+
+<script>
+    function goToLoginPage() {
+        window.location.href = "login.html";
+    }
+
+    // 페이지 로드 후 실행되는 함수
+    document.addEventListener('DOMContentLoaded', function () {
+        // 사용자 이름을 가져옵니다. 이 부분은 사용자 이름이 로그인할 때 설정된 변수 또는 값을 가져오는 로직으로 대체되어야 합니다.
+        var userName = localStorage.getItem('username');
+
+        // 사용자 이름이 있을 경우
+        if (userName) {
+            // 사용자 이름으로 버튼 텍스트 설정
+            var loginButton = document.getElementById('loginButton');
+            loginButton.innerText = userName;
+
+            // 사용자 이름 클릭 시의 동작 설정
+            loginButton.onclick = function () {
+                var confirmLogout = confirm('마이페이지 구현 예정\n로그아웃 하시겠습니까?');
+                if (confirmLogout) {
+                    // localStorage에서 해당 값을 지웁니다.
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('user_id');
+                    // 사용자 페이지로 이동 예시
+                    alert('로그아웃되었습니다.');
+                    location.reload(); // 페이지 새로고침
+                }
+            };
+        }
+    });
+    // view.html
+    // 페이지 로드 후 실행되는 함수
+    document.addEventListener('DOMContentLoaded', function () {
+        // 로컬 스토리지에서 게시글의 인덱스를 가져옵니다.
+        var index = localStorage.getItem('currentKey');
+        // 로컬 스토리지에서 게시글 데이터를 가져와서 원래의 형태로 변환합니다.
+        var data = JSON.parse(localStorage.getItem('customerData'));
+
+        if (!data) {
+            console.error('customerData is not found in the local storage.');
+            return;
+        }
+
+        var row = data[index];
+
+        if (!row) {
+            console.error('No data found for the given index:', index);
+            return;
+        }
+
+        // 게시글 데이터를 화면에 표시합니다.
+        $('.title .ti').text(row.title);
+        $('#user').text(row.userId);
+        $('#contents').val(row.contents);
+    });
+</script>
+</body>
+</html>
