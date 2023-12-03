@@ -78,7 +78,7 @@
           <div class="header-utils">
             <button class="btn-allmenu">
             </button>
-            <button class="btn" id="loginButton" type="button"> Login</button>
+            <button class="btn" id="loginButton" type="button" onclick="goToLoginPage()"> Login</button>
             <button class="btn-momenu">
               <img src="../resources/icons/ico_menu_black.svg" alt="모바일메뉴 아이콘">
             </button>
@@ -254,6 +254,14 @@
 <script src="../resources/js/common.js"></script>
 <script src="../resources/js/script.js"></script>
 <script src="../resources/js/wishlist3.js"></script>
+
+<script>
+  // JavaScript 함수를 통해 페이지 이동 처리
+  function goToLoginPage() {
+    window.location.href = "login.html";
+  }
+</script>
+
 <script>    // 페이지 로드 후 실행되는 함수
 document.addEventListener('DOMContentLoaded', function () {
   // 사용자 이름을 가져옵니다. 이 부분은 사용자 이름이 로그인할 때 설정된 변수 또는 값을 가져오는 로직으로 대체되어야 합니다.
