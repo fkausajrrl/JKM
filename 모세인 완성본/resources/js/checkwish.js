@@ -9,10 +9,21 @@ document.getElementById("product4").style.display = "none";
 const baseurl = "https://rarely-current-dane.ngrok-free.app";
 var url =`${baseurl}/wlist/list?user_id=${user_id}`;
 
-
+// 기본값 0으로 설정
+localStorage.setItem('heartStatus1', '0');
+localStorage.setItem('heartStatus2', '0');
+localStorage.setItem('heartStatus3', '0');
+localStorage.setItem('heartStatus4', '0');
 fetch(url)
     .then(response => response.json())
     .then(data => {
+        data.forEach(item => {
+            const itemId = item.itemId;
+
+            // itemId에 따라서 heartStatus 변수명으로 로컬 스토리지에 값을 저장
+            const heartStatusKey = 'heartStatus' + itemId;
+            localStorage.setItem(heartStatusKey, '1');
+        });
         // 장바구니에서 item_Id를 가져와서 alert으로 보여줌
         const items = data.map(item => item.itemId);
         items.forEach(itemId => {

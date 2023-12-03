@@ -93,8 +93,8 @@
 
 <div class="board_wrap">
     <div class="board_title">
-        <strong>공지사항</strong>
-        <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+        <strong>고객센터</strong>
+        <p>문의사항을 빠르고 정확하게 안내해드립니다.</p>
     </div>
     <div class="board_write_wrap">
         <div class="board_write">
@@ -120,6 +120,38 @@
             <a href="customer.html">취소</a>
         </div>
     </div>
+    <!-- 관리자 답글 보여주는 영역 추가 -->
+    <div class="admin_reply" id="rwrite">
+        <h3>관리자 답글</h3>
+    </div>
+    <div class="board_write" id="rcontents">
+        <div class="info">
+            <dl>
+                <dt>글쓴이</dt>
+                <dd>관리자</dd>
+            </dl>
+        </div>
+        <div class="cont">
+            <br>
+            <textarea id="contentsadmin"></textarea>
+        </div>
+    </div>
+</div>
+<!-- [S]basic-N4 -->
+<div class="basic-N4" data-bid="EGLpLa9q4k">
+    <div class="footer-container container-lg">
+        <div class="footer-bottom">
+            <div class="footer-txt">
+                <p>
+                    <span>T. 070-7777-8888</span>
+                    <span>E. jkm123@naver.com</span>
+                </p>
+            </div>
+            <div class="footer-txt">
+                <p>JKM PC</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="../resources/js/setting.js"></script>
@@ -133,7 +165,6 @@
         window.location.href = "login.html";
     }
 </script>
-
 <!--//'수정' 입력시 반응-->
 <script>
     var editButton = document.querySelector('.on');
@@ -182,7 +213,6 @@
         }
     });
 </script>
-
 <!--// view.html-->
 <!--// 페이지 로드 후 실행되는 함수-->
 <script>
@@ -196,30 +226,39 @@
             console.error('customerData is not found in the local storage.');
             return;
         }
-
         var row = data[index];
 
         if (!row) {
             console.error('No data found for the given index:', index);
             return;
         }
+        // 관리자 답글이 null인 경우 HTML 부분을 숨깁니다.
+        if(row.adminR === null) {
+            document.getElementById('rwrite').style.display = 'none';
+            document.getElementById('rcontents').style.display = 'none';
+        } else {
+            // 관리자 답글을 화면에 표시합니다.
+            document.getElementById('contentsadmin').textContent = row.adminR;
+        }
 
 // 게시글 데이터를 화면에 표시합니다.
         $('.title .ti').text(row.title);
         $('#user').text(row.userId);
         $('#contents').val(row.contents);
+        $('#contentsadmin').val(row.adminR);
     });
 </script>
 
-<!--//textarea에 글이 있다면 입력 막음-->
 <script>
     window.onload = function () {
+        //textarea에 글이 있다면 입력 막음
         var textarea = document.getElementById("contents");
+        var textarear = document.getElementById("contentsadmin");
         if (textarea.value.trim() !== "") { // 내용이 있다면
             textarea.disabled = true; // 입력을 막습니다.
         }
+        textarear.disabled = true;
     }
 </script>
-
 </body>
 </html>

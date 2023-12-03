@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="title" content="웹사이트">
+  <meta name="description" content="웹사이트입니다.">
+  <meta name="keywords" content="키워드,키워드,키워드">
+  <meta property="og:title" content="웹사이트">
+  <meta property="og:description" content="웹사이트입니다">
+  <meta property="og:image" content="https://웹사이트/images/opengraph.png">
+  <meta property="og:url" content="https://웹사이트">
+  <title>고객센터 | JKMPC</title>
+  <link rel="stylesheet" href="../resources/css/setting.css">
+  <link rel="stylesheet" href="../resources/css/plugin.css">
+  <link rel="stylesheet" href="../resources/css/template.css">
+  <link rel="stylesheet" href="../resources/css/common.css">
+  <link rel="stylesheet" href="../resources/css/style.css">
+  <link rel="stylesheet" href="../resources/css/cart.css">
+  <link rel="stylesheet" href="./../resources/css/css.css">
+</head>
+<body>
+<!-- [S]basic-N1 -->
+<div class="basic-N1" data-bid="QYLPl9YDfv">
+  <div class="header-inner">
+    <div class="header-container container-lg">
+      <h1 class="header-title">
+        <a href="home.html">
+          <img src="../resources/images/img_logo_black.png" alt="로고">
+        </a>
+      </h1>
+      <div class="header-center">
+        <div class="header-title header-mobile-top">
+          <a href="javascript:void(0)">
+            <img src="../resources/images/img_logo_black.png" alt="로고">
+          </a>
+        </div>
+        <ul class="header-gnblist">
+          <li class="header-gnbitem">
+            <a class="header-gnblink" href="notice.html">
+              <span>공지사항</span>
+            </a>
+          </li>
+          <li class="header-gnbitem">
+            <a class="header-gnblink" href="product.html">
+              <span>제품</span>
+            </a>
+          </li>
+          <li class="header-gnbitem">
+            <a class="header-gnblink" href="wishlist.html">
+              <span>위시리스트</span>
+            </a>
+          </li>
+          <li class="header-gnbitem">
+            <a class="header-gnblink" href="cart.html">
+              <span>장바구니<br></span>
+            </a>
+          </li>
+          <li class="header-gnbitem">
+            <a class="header-gnblink" href="customer.html">
+              <span>고객센터</span>
+            </a>
+          </li>
+          <li class="header-gnbitem">
+            <a class="header-gnblink" href="#">
+              <span>문의내역</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <div class="header-utils">
+          <button class="btn-allmenu"></button>
+          <button class="btn" id="loginButton" type="button" onclick="goToLoginPage()">Login</button>
+          <button class="btn-momenu">
+            <img src="../resources/icons/ico_menu_black.svg" alt="모바일메뉴 아이콘">
+          </button>
+          <button class="btn-close">
+            <img src="../resources/icons/ico_close_black.svg" alt="닫기 아이콘">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-dim"></div>
+</div>
+<!-- [E]basic-N1 -->
+<main class="th-layout-main "></main>
+
+<div class="board_wrap">
+  <div class="board_title">
+    <strong>공지사항</strong>
+    <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+  </div>
+  <div class="board_write_wrap">
+    <div class="board_write">
+      <div class="title">
+        <dl>
+          <dt>제목</dt>
+          <dd class="ti"></dd>
+        </dl>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>글쓴이</dt>
+          <dd id="user"></dd>
+        </dl>
+      </div>
+      <div class="cont">
+                    <textarea id="contents" placeholder="내용 입력">
+</textarea>
+      </div>
+    </div>
+    <div class="bt_wrap">
+      <a class="on">목록</a>
+      <a href="notice.html">취소</a>
+    </div>
+  </div>
+</div>
+<!-- [S]basic-N4 -->
+<div class="basic-N4" data-bid="EGLpLa9q4k">
+  <div class="footer-container container-lg">
+    <div class="footer-bottom">
+      <div class="footer-txt">
+        <p>
+          <span>T. 070-7777-8888</span>
+          <span>E. jkm123@naver.com</span>
+        </p>
+      </div>
+      <div class="footer-txt">
+        <p>JKM PC</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../resources/js/setting.js"></script>
+<script src="../resources/js/plugin.js"></script>
+<script src="../resources/js/template.js"></script>
+<script src="../resources/js/common.js"></script>
+<script src="../resources/js/script.js"></script>
+<script src="../resources/js/cart.js"></script>
+<script>
+  function goToLoginPage() {
+    window.location.href = "login.html";
+  }
+</script>
+
+<!--//'수정' 입력시 반응-->
+<script>
+  var editButton = document.querySelector('.on');
+
+  // '수정' 버튼에 클릭 이벤트 리스너를 추가합니다.
+  editButton.addEventListener('click', function () {
+    window.location.href = 'notice.html';
+  });
+</script>
+
+<!-- 페이지 로드 후 실행되는 함수-->
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+// 사용자 이름을 가져옵니다. 이 부분은 사용자 이름이 로그인할 때 설정된 변수 또는 값을 가져오는 로직으로 대체되어야 합니다.
+    var userName = localStorage.getItem('username');
+
+// 사용자 이름이 있을 경우
+    if (userName) {
+// 사용자 이름으로 버튼 텍스트 설정
+      var loginButton = document.getElementById('loginButton');
+      loginButton.innerText = userName;
+
+// 사용자 이름 클릭 시의 동작 설정
+      loginButton.onclick = function () {
+        var confirmLogout = confirm('마이페이지 구현 예정\n로그아웃 하시겠습니까?');
+        if (confirmLogout) {
+// localStorage에서 해당 값을 지웁니다.
+          localStorage.clear();
+// 사용자 페이지로 이동 예시
+          alert('로그아웃되었습니다.');
+          location.reload(); // 페이지 새로고침
+        }
+      };
+    }
+  });
+</script>
+
+<!--// view.html-->
+<!--// 페이지 로드 후 실행되는 함수-->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+// 로컬 스토리지에서 게시글의 인덱스를 가져옵니다.
+    var index = localStorage.getItem('currentKey');
+// 로컬 스토리지에서 게시글 데이터를 가져와서 원래의 형태로 변환합니다.
+    var data = JSON.parse(localStorage.getItem('customerData'));
+
+    if (!data) {
+      console.error('customerData is not found in the local storage.');
+      return;
+    }
+
+    var row = data[index];
+
+    if (!row) {
+      console.error('No data found for the given index:', index);
+      return;
+    }
+
+// 게시글 데이터를 화면에 표시합니다.
+    $('.title .ti').text(row.title);
+    $('#user').text(row.userId);
+    $('#contents').val(row.contents);
+  });
+</script>
+
+<!--//textarea에 글이 있다면 입력 막음-->
+<script>
+  window.onload = function () {
+    var textarea = document.getElementById("contents");
+    var textarear = document.getElementById("contentsadmin");
+    if (textarea.value.trim() !== "") { // 내용이 있다면
+      textarea.disabled = true; // 입력을 막습니다.
+    }
+    textarear.disabled = true;
+  }
+</script>
+
+</body>
+</html>

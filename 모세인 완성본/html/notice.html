@@ -107,9 +107,7 @@
         </div>
       </div>
 
-      <div class="bt_wrap">
-        <a href="#" id="registerButton" class="on">등록</a>
-      </div>
+
     </div>
   </div>
   <script src="../resources/js/setting.js"></script>
@@ -153,7 +151,7 @@
           (function(i) {
             div.click(function() {
               localStorage.setItem('currentKey', i);
-              window.location.href = 'view.html';
+              window.location.href = 'noticview.html';
             });
           })(i);
           $(".board_list").append(div);
@@ -172,8 +170,8 @@
         loginButton.onclick = function () {
           var confirmLogout = confirm('마이페이지 구현 예정\n로그아웃 하시겠습니까?');
           if (confirmLogout) {
-            localStorage.removeItem('username');
-            localStorage.removeItem('user_id');
+            // localStorage에서 해당 값을 지웁니다.
+            localStorage.clear();
             alert('로그아웃되었습니다.');
             location.reload();
           }
