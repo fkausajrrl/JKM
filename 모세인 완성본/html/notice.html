@@ -66,24 +66,9 @@
               <span>고객센터</span>
             </a>
           </li>
-          <li class="header-gnbitem">
-            <a class="header-gnblink" href="#">
-              <span>문의내역</span>
-            </a>
-          </li>
         </ul>
       </div>
       <div class="header-right">
-        <div class="header-lang lang-active">
-          <ul class="header-langlist">
-            <li class="header-langitem">
-              <a href="javascript:void(0)">KOR</a>
-            </li>
-            <li class="header-langitem">
-              <a href="javascript:void(0)">ENG</a>
-            </li>
-          </ul>
-        </div>
         <div class="header-utils">
           <button class="btn-allmenu">
           </button>
@@ -138,21 +123,13 @@
       window.location.href = "login.html";
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      var inquiryButton = document.querySelector('.header-gnbitem:last-child .header-gnblink');
-
-      inquiryButton.addEventListener('click', function () {
-        alert('구현 예정입니다.');
-      });
-    });
-
     var currentPage = 1;
-    var itemsPerPage = 10;
+    var itemsPerPage = 15;
     var data = [];
 
     $(document).ready(function () {
       $.ajax({
-        url: "https://rarely-current-dane.ngrok-free.app/customer/list",
+        url: "https://rarely-current-dane.ngrok-free.app/notice/list",
         type: "GET",
         success: function (result) {
           localStorage.setItem('customerData', JSON.stringify(result));
@@ -161,16 +138,6 @@
         },
         error: function (error) {
           console.log(`Error ${error}`);
-        }
-      });
-
-      $('#registerButton').click(function () {
-        var userName = localStorage.getItem('username');
-        if (userName) {
-          window.location.href = "write.html";
-        } else {
-          alert("로그인이 필요한 서비스입니다.");
-          window.location.href = "login.html";
         }
       });
     });

@@ -140,8 +140,18 @@
 
     // '수정' 버튼에 클릭 이벤트 리스너를 추가합니다.
     editButton.addEventListener('click', function () {
-        // edit.html을 열기 위해 window.location.href를 사용합니다.
-        window.location.href = 'edit.html';
+        // 로컬 스토리지에서 user_id 가져오기
+        var user_id = localStorage.getItem('user_id');
+
+        // id가 "user"인 요소의 값을 가져옵니다.
+        var userElement = document.getElementById('user').innerText;
+
+        // user_id와 userValue를 비교하여 같은 경우 edit.html을 열고, 다른 경우 "권한 없음!" 알림을 표시합니다.
+        if (user_id === userElement) {
+            window.location.href = 'edit.html';
+        } else {
+            alert('권한 없음!');
+        }
     });
 </script>
 
@@ -163,8 +173,7 @@
                 var confirmLogout = confirm('마이페이지 구현 예정\n로그아웃 하시겠습니까?');
                 if (confirmLogout) {
 // localStorage에서 해당 값을 지웁니다.
-                    localStorage.removeItem('username');
-                    localStorage.removeItem('user_id');
+                    localStorage.clear();
 // 사용자 페이지로 이동 예시
                     alert('로그아웃되었습니다.');
                     location.reload(); // 페이지 새로고침

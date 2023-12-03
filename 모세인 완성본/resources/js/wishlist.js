@@ -40,17 +40,15 @@ fetch(url)
 document.getElementById('heart_good').addEventListener('click', function() {
     var url = `https://rarely-current-dane.ngrok-free.app/wlist/save?user_id=${user_id}&item_id=1`;
 
-
     fetch(url, {
         method: 'POST',
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
     })
         .then(function(response) {
             console.log(response);
             // 응답 처리
             // 원하는 작업을 수행하세요.
+            // 로컬 스토리지에 heartStatus 값을 저장합니다.
+            localStorage.setItem('heartStatus1', '1');
         })
         .catch(function(error) {
             // 에러 처리
@@ -62,15 +60,15 @@ document.getElementById('heart_good').addEventListener('click', function() {
 document.getElementById('heart_bad').addEventListener('click', function() {
     var url = `https://rarely-current-dane.ngrok-free.app/wlist/delete?user_id=${user_id}&item_id=1`;
 
-
     fetch(url, {
         method: 'POST',
-
     })
         .then(function(response) {
             console.log(response);
             // 응답 처리
             // 원하는 작업을 수행하세요.
+            // 로컬 스토리지에 heartStatus 값을 저장합니다.
+            localStorage.setItem('heartStatus1', '0');
         })
         .catch(function(error) {
             // 에러 처리

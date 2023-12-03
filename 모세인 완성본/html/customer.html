@@ -14,7 +14,7 @@
     <meta property="og:description" content="웹사이트입니다">
     <meta property="og:image" content="https://웹사이트/images/opengraph.png">
     <meta property="og:url" content="https://웹사이트">
-    <title>공지사항 | JKMPC</title>
+    <title>고객센터 | JKMPC</title>
     <link rel="stylesheet" href="../resources/css/setting.css">
     <link rel="stylesheet" href="../resources/css/plugin.css">
     <link rel="stylesheet" href="../resources/css/template.css">
@@ -74,16 +74,6 @@
                 </ul>
             </div>
             <div class="header-right">
-                <div class="header-lang lang-active">
-                    <ul class="header-langlist">
-                        <li class="header-langitem">
-                            <a href="javascript:void(0)">KOR</a>
-                        </li>
-                        <li class="header-langitem">
-                            <a href="javascript:void(0)">ENG</a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="header-utils">
                     <button class="btn-allmenu">
                     </button>
@@ -147,7 +137,7 @@
         });
 
         var currentPage = 1;
-        var itemsPerPage = 10;
+        var itemsPerPage = 15;
         var data = [];
 
         $(document).ready(function () {
@@ -205,8 +195,7 @@
                 loginButton.onclick = function () {
                     var confirmLogout = confirm('마이페이지 구현 예정\n로그아웃 하시겠습니까?');
                     if (confirmLogout) {
-                        localStorage.removeItem('username');
-                        localStorage.removeItem('user_id');
+                        localStorage.clear();
                         alert('로그아웃되었습니다.');
                         location.reload();
                     }
