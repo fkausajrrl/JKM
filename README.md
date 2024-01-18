@@ -6,3 +6,6 @@
 2. 공지사항 , 문의사항 CRUD</br>
 3. wish , order list</br>
 4. 상태 저장 및 DB 연동</br>
+</br>
+</br>
+백엔드 코드는 따로 구현
